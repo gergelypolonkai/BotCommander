@@ -1,0 +1,18 @@
+AC_INIT([src/main.c])
+
+PACKAGE=botcommander
+VERSION=1.0
+
+AM_INIT_AUTOMAKE($PACKAGE, $VERSION)
+
+AM_GNU_GETTEXT([external])
+
+PKG_CHECK_MODULES(BCREQ, gtk+-2.0)
+
+AC_SUBST(BCREQ_CFLAGS)
+AC_SUBST(BCREQ_LIBS)
+
+AC_PROG_CC
+
+AC_OUTPUT([Makefile src/Makefile po/Makefile.in])
+
