@@ -1,6 +1,5 @@
 bin_PROGRAMS = botcommander
-
-AM_CFLAGS = $(BCREQ_CFLAGS)
+AM_CPPFLAGS = $(GTK_CFLAGS) -DLOCALEDIR=\"$(localedir)\"
 
 botcommander_SOURCES = main.c
-botcommander_LDADD = $(BCREQ_LIBS)
+botcommander_LDADD = $(GTK_LIBS) @LIBINTL@

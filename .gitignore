@@ -16,3 +16,5 @@ po/Makevars.template
 po/stamp-po
 src/.deps/*
 po/POTFILES
+*.o
+src/botcommander
