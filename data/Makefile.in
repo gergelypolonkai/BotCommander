@@ -1,0 +1,46 @@
+include ../rules
+
+GCONFTOOL = @GCONFTOOL@
+
+top_srcdir = @top_srcdir@
+top_builddir = @top_builddir@
+sysconfdir = @sysconfdir@
+datarootdir = @datarootdir@
+datadir = @datadir@
+
+INTLTOOL_MERGE = @INTLTOOL_MERGE@
+INTLTOOL_DESKTOP_RULE = @INTLTOOL_DESKTOP_RULE@
+INTLTOOL_SCHEMAS_RULE = @INTLTOOL_SCHEMAS_RULE@
+GCONF_SCHEMA_FILE_DIR = @GCONF_SCHEMA_FILE_DIR@
+GCONF_SCHEMAS_INSTALL_TRUE = @GCONF_SCHEMAS_INSTALL_TRUE@
+GCONF_SCHEMA_CONFIG_SOURCE = @GCONF_SCHEMA_CONFIG_SOURCE@
+
+gnomemenudir = $(datadir)/applications
+gnomemenu_premerge_file = botcommander.desktop.in
+gnomemenu_DATA = $(gnomemenu_premerge_file:.desktop.in=.desktop)
+
+schema_in_files = botcommander.schemas.in
+schemadir = $(GCONF_SCHEMA_FILE_DIR)
+schema_DATA = $(schema_in_files:.schemas.in=.schemas)
+
+all: $(gnomemenu_DATA)
+clean:
+
+install: $(gnomemenu_DATA)
+@GCONF_SCHEMAS_INSTALL_TRUE@	if test -z "$(DESTDIR)" ; then \
+@GCONF_SCHEMAS_INSTALL_TRUE@	for p in $(schema_DATA) ; do \
+@GCONF_SCHEMAS_INSTALL_TRUE@	GCONF_CONFIG_SOURCE=$(GCONF_SCHEMA_CONFIG_SOURCE) $(GCONFTOOL) --makefile-install-rule $(top_builddir)/data/$$p >&1 > /dev/null; \
+@GCONF_SCHEMAS_INSTALL_TRUE@	done \
+@GCONF_SCHEMAS_INSTALL_TRUE@	fi
+	$(top_srcdir)/mkinstalldirs $(gnomemenudir)
+	$(top_srcdir)/mkinstalldirs $(schemadir)
+	$(INSTALL) -m 0644 $(gnomemenu_DATA) $(gnomemenudir)
+	$(INSTALL) -m 0644 $(schema_DATA) $(schemadir)
+
+distclean:
+	rm -f botcommander.desktop botcommander.desktop.in botcommander.schemas Makefile
+
+@INTLTOOL_DESKTOP_RULE@
+
+@INTLTOOL_SCHEMAS_RULE@
+

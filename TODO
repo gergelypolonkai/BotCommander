@@ -1,0 +1,23 @@
+* Preferences
+	- Save recalled command at the end of history? 
+	- Save command to history which is already there somewhere?
+
+* Bot list
+	- Edit Save in conf backend
+
+* Command completion
+
+* If there is a command which can be abbreviated and one
+  which can not, get_command_from_abbrev() should return the former.
+
+* User should be able to set local vhost to use.
+
+* (Channel and Handle list) hideable.
+
+* Create a status icon.
+
+* BotCommander SWITCH command. This will act like the CONNECT command, but it will connect in a new tab. If the specified bot is already connected in one of the tabs, BotCommander will switch to that tab instead of opening a new one.
+
+* Contents of aclocal.m4 can be splitted somehow. But where to?
+
+* http://www.botcommander.hu/files/botcommander-latest.tar.bz2 <= http://www.botcommander.hu/latest

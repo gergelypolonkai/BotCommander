@@ -1,0 +1,154 @@
+<gconfschemafile>
+	<schemalist>
+		<schema>
+			<key>/schemas/apps/botcommander/background_saturation</key>
+			<applyto>/apps/botcommander/background_saturation</applyto>
+			<owner>botcommander</owner>
+			<type>float</type>
+			<default>0.0</default>
+			<locale name="C">
+				<short>Background is not opaque by default</short>
+				<long>background_saturation only has effect when transparent_background is true. If so, this value gives the opacity of the VTE</long>
+			</locale>
+			<locale name="hu">
+				<short>A háttér alapértelmezés szerint nem áttetsző</short>
+				<long>A background_saturation értékét csak akkor veszi figyelembe a program, ha a transparent_background értéke true. Ha így van, ez az érték adja meg a VTE áttetszőségének mértékét.</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/change_to_message</key>
+			<applyto>/apps/botcommander/change_to_message</applyto>
+			<owner>botcommander</owner>
+			<type>bool</type>
+			<default>true</default>
+			<locale name="C">
+				<short>By default, BotCommander will change to Message mode after connecting to a bot</short>
+				<long>When this option is true, BotCommander will set Message mode after connecting to a bot</long>
+			</locale>
+			<locale name="hu">
+				<short>Alapértelmezés szerint a BotCommander átvált Üzenet módba miután csatlakozott egy bothoz</short>
+				<long>Ha ez az opció true, a BotCommander átvált Üzenet módba, miután csatlakozott egy bothoz</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/change_to_new_tab</key>
+			<applyto>/apps/botcommander/change_to_new_tab</applyto>
+			<owner>botcommander</owner>
+			<type>bool</type>
+			<default>true</default>
+			<locale name="C">
+				<short>BotCommander changes to the newly created tab by default</short>
+				<long>When this value is true, BotCommander will change to the newly opened tab. Otherwise, the new tab won't be activated</long>
+			</locale>
+			<locale name="hu">
+				<short>A BotCommander alapértelmezés szerint átvált az újonnan létrehozott fülre</short>
+				<long>Ha ez az érték true, a BotCommander automatikusan átvált az újonnan megnyitott fülre. Ha nem, a fül nem lesz aktiválva</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/debug</key>
+			<applyto>/apps/botcommander/debug</applyto>
+			<owner>botcommander</owner>
+			<type>bool</type>
+			<default>false</default>
+			<locale name="C">
+				<short>By default, BotCommander won't print out debug messages</short>
+				<long>If this option is true, and the code is compiled with the DEBUG flag, BotCommander will print debug messages</long>
+			</locale>
+			<locale name="hu">
+				<short>Alapértelmezés szerint a BotCommander nem fogja kiírni a hibakereső üzeneteket</short>
+				<long>Ha ez az opció be van kapcsolva, és a kód a DEBUG opcióval lett fordítva, a BotCommander folyamatosan kiírja a hibakereső üzeneteket</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/default_mode</key>
+			<applyto>/apps/botcommander/default_mode</applyto>
+			<owner>botcommander</owner>
+			<type>string</type>
+			<default>B</default>
+			<locale name="C">
+				<short>By default, BotCommander will use BotCommander command mode</short>
+				<long>When you open a new tab, BotCommander will use this mod as the initial mode of the tab</long>
+			</locale>
+			<locale name="hu">
+				<short>Alapértelmezés szerint a BotCommander Botcommander Parancs-módot használ</short>
+				<long>Mikor megnyitsz egy új fület, a BotCommander ezt a módot állítja be rajta</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/history_length</key>
+			<applyto>/apps/botcommander/history_length</applyto>
+			<owner>botcommander</owner>
+			<type>int</type>
+			<default>300</default>
+			<locale name="C">
+				<short>The default scrollback-size for the VTEs is 300 lines</short>
+				<long>The VTEs scrollback is set to this value</long>
+			</locale>
+			<locale name="hu">
+				<short>A VTE-k memóritára alapértelmezésben 300 sor</short>
+				<long>A VTE-k memóriatárának mérete ennyi sorra van állítva</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/sanity</key>
+			<applyto>/apps/botcommander/sanity</applyto>
+			<owner>botcommander</owner>
+			<type>string</type>
+			<default>Needed for gconf sanity check, please don't remove!</default>
+			<locale name="C">
+				<short>NEVER CHANGE THIS VALUE!</short>
+				<long>NEVER CHANGE THIS VALUE! This is for sanity check. Maybe I'll remove it soon. NEVER CHANGE THIS VALUE!</long>
+			</locale>
+			<locale name="hu">
+				<short>SOHA NE VÁLTOZTASD MEG EZT AZ ÉRTÉKET!</short>
+				<long>SOHA NE VÁLTOZTASD MEG EZT AZ ÉRTÉKET! Ez a gconf ellenőrzésére szolgál. Valószínűleg hamarosan törlöm. SOHA NE VÁLTOZTAST MEG EZT AZ ÉRTÉKET!</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/scroll_on_output</key>
+			<applyto>/apps/botcommander/scroll_on_output</applyto>
+			<owner>botcommander</owner>
+			<type>bool</type>
+			<default>true</default>
+			<locale name="C">
+				<short>By default, BotCommander will scroll the contents of the VTE when new data arrives from the bot</short>
+				<long>When this option is true, BotCommander will automatically scroll to the bottom of the window when a new line arrives from the bot</long>
+			</locale>
+			<locale name="hu">
+				<short>Alapértelmezés szerint a BotCommander a VTE aljára görget, ha új adat érkezik a bottól</short>
+				<long>Ha ez az opció true, a BotCommander automatikusan a VTE aljára görget, ha új adat érkezik a bottól</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/transparent_background</key>
+			<applyto>/apps/botcommander/transparent_background</applyto>
+			<owner>botcommander</owner>
+			<type>bool</type>
+			<default>false</default>
+			<locale name="C">
+				<short>By default, the VTEs' background is not transparent</short>
+				<long>If you set this option to true, and background_saturation to a number greater then 0, the VTEs' background will be opaque</long>
+			</locale>
+			<locale name="hu">
+				<short>Alapértelmezés szerint a VTE-k háttere nem áttetsző</short>
+				<long>Ha ezt az értéket true-ra állítod, a background_saturation értékét pedig 0-nál nagyobbra, a VTE-k háttere áttetsző lesz</long>
+			</locale>
+		</schema>
+		<schema>
+			<key>/schemas/apps/botcommander/vte_font</key>
+			<applyto>/apps/botcommander/vte_font</applyto>
+			<owner>botcommander</owner>
+			<type>string</type>
+			<default>Courier 10 Pitch 12</default>
+			<locale name="C">
+				<short>By default, the VTEs use the Courier 10 Pitch font with a 12pt size</short>
+				<long>The VTEs' font will set to this value</long>
+			</locale>
+			<locale name="hu">
+				<short>Alapértelmezés szerint a VTE-k a Courier 10 Pitch font 12pt méretű változatát használják</short>
+				<long>Ez az érték lesz megadva, mint a VTE-k betűkészlete</long>
+			</locale>
+		</schema>
+	</schemalist>
+</gconfschemafile>

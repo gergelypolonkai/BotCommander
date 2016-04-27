@@ -1,0 +1,14 @@
+Source: botcommander
+Section: utils
+Priority: optional
+Maintainer: Gergely POLONKAI <polesz@botcommander.hu>
+Build-Depends: debhelper (>= 5), autotools-dev, libgnomeui-0, libvte4, libgtk2.0-0, libgconf2-4
+Standards-Version: 3.7.2
+
+Package: botcommander
+Architecture: i386
+Depends: ${shlibs:Depends}
+Description: BotCommander is a graphical eggdrop client for UN*X sytems
+ BotCommander is a graphical eggdrop client written for UN*X systems. This is
+ still a work-in-progress, as it already functional. There are still many plans
+ which are not implemented yet.

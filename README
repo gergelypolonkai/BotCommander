@@ -1,0 +1,91 @@
+This short document is originally based on eggdrop's README file.
+
+Contents
+
+0. Important notice
+1. What is BotCommander
+2. How do I get BotCommander?
+3. Quick startup
+4. Frequently Asked Questions
+5. Legal stuff
+6. Documentation
+7. Obtaining help
+
+     _________________________________________________________________
+
+
+  (0) NOTICE
+
+    Please read this document, and the original BotCommander documentation
+    before asking for help! These files contain almost everything possible, and
+    are always growing, as people ask me more and more questions.
+
+     _________________________________________________________________
+
+
+  (1) WHAT IS BOTCOMMANDER?
+
+    BotCommander is a customisable telnet client, heavily specialized with the
+    usage with Eggdrop IRC bots. Currently it possesses only the planned basic
+    functionality, but I have many-many plans, such as module-writing,
+    scripting and such.
+
+    BotCommander is continously updated: bugs are getting fixed, and new
+    features are being added, which sometimes can cause new bugs. Currently
+    there is a so called "stable" version out there, but there are still known
+    bugs.
+
+     _________________________________________________________________
+ 
+
+  (2) HOW DO I GET BOTCOMMANDER?
+
+    Before you can install/compile BotCommander, you will need several other
+    software installed on your machine.
+
+    As BotCommander currently depends heavily on GTK+ 2 and Gnome 2, you will
+    need these. If you are planning (or must) install BotCommander from
+    sources, you will also need the development libraries of them. These
+    software comes with most of the Linux/Unix distributions, so the only thing
+    you may have to do is to install them.
+
+    The current stable version (as of writing) is 1.0; you can download it
+    (amongst many other files) from http://www.botcommander.hu/.
+
+    Optionally, you can get the latest SVN version from
+    http://www.botcommander.hu/files/botcommander-svn.tar.bz2. BUT BEWARE! This
+    version may contain code snippets which will never compile on any machine!
+    This is because I'm a nasty developer, and sometimes upload this kind of
+    code, so I can continue coding on my other machine after an svn update. I'm
+    also planning to add anonymous SVN access, but currently I don't have
+    enough knowledge about SVN to do such thing.
+
+     _________________________________________________________________
+ 
+
+  (3) QUICK STARTUP
+
+    About installation quick-start you should read the INSTALL file; about
+    usage, you should go and read the original BotCommander documentation. The
+    latter is written in DocBook XML, and is compiled into a PDF document upon
+    a successful installation. It can be found in the doc/ directory.
+
+     _________________________________________________________________
+ 
+
+  (4) FREQUENTLY ASKED QUESTIONS
+
+     _________________________________________________________________
+ 
+
+  (5) LEGAL STUFF
+
+     _________________________________________________________________
+ 
+
+  (6) DOCUMENTATION
+
+     _________________________________________________________________
+ 
+
+  (7) OBTAINING HELP

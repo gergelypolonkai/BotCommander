@@ -1,0 +1,349 @@
+\input texinfo
+@c vim:textwidth=80
+@c Header
+@setfilename botcommander.info
+@include version.texinfo
+@settitle BotCommander @value{VERSION}
+@documentdescription
+BotCommander manual for version @value{VERSION}
+@end documentdescription
+@setchapternewpage odd
+@firstparagraphindent insert
+
+@c Summary and Copyright
+@copying
+This manual is for BotCommander
+(version @value{VERSION}, @value{UPDATED}),
+which is a specialized telnet client.
+
+Copyright @copyright{} 2005, Gergely POLONKAI
+
+@quotation
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.1 or
+any later version published by the Free Software Foundation; with no
+Invariant Sections, with the Front-Cover Texts being ``A GNU Manual,''
+and with the Back-Cover Texts as in (a) below.  A copy of the
+license is included in the section entitled ``GNU Free Documentation
+License.''
+
+(a) The FSF's Back-Cover Text is: ``You have freedom to copy and modify
+this GNU Manual, like GNU software.  Copies published by the Free
+Software Foundation raise funds for GNU development.''
+@end quotation
+@end copying
+
+@dircategory Network Applications
+@direntry
+* BotCommander: (botcommander).
+@end direntry
+
+@c Title and Copyright
+@titlepage
+@title BotCommander
+@subtitle for version @value{VERSION}, @value{UPDATED}
+@author Gergely POLONKAI (@email{polesz@@botcommander.hu})
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+@end titlepage
+
+@contents
+
+@c Top node and master menu
+@ifnottex
+@node Top, About, , (dir)
+@top BotCommander
+
+@insertcopying
+@end ifnottex
+
+@menu 
+* About::                  About the application
+* Overview::               Features of BotCommander
+* Installation::           How to install BotCommander
+* Invoking::               Command line arguments
+* Commands::               Internal commands
+* Configuration::          The setup window
+* Plans::                  Plans in future versions
+* Index::                  Index
+@end menu
+
+@c Body
+
+@node About,    Overview, Top,   Top
+@chapter About BotCommander
+
+@cindex about
+
+@cindex homepage
+
+You can reach the project's homepage at @url{http://www.botcommander.hu/}.
+
+@cindex description
+
+BotCommander is a small tool, originally written for the Gnome2 interface, to
+remotely manage your @url{http://www.eggheads.org/, eggdrop} IRC bots.@*
+Actually, it's acting as a small, configurable telnet client, but it will know a
+bit more. For example, it has command-line history. While you cannot recall your
+previous command in a simple telnet client, you will be able to do it with this
+program. As it uses a text box for the command line, you can easily edit that
+command.
+
+The program uses @url{http://www.gnome.org/projects/gconf/, GConf2}
+to store its configuration data. You can configure it to use a samba-like config
+file instead, so you won't depend that heavily on @url{http://www.gnome.org/,
+Gnome 2}, @xref{Installation}. In the near future I also plan
+@url{http://www.w3.org/XML/, XML} config backend support.
+
+On 28 August, 2006 I decided to drop this plan, and also the samba-like config
+backend for a longer period. I think the application should first function, and
+only after that I can create such addons.
+
+@cindex status
+
+The code is in alpha status. You can see how will it look like, also can use
+for one connection, and decide if you will like it or not.
+
+@cindex icon
+
+BotCommander icon is from @url{http://www.eggheads.org/, Eggdrop}'s official
+homepage. I will draw a new one, but until then, this is perfect.
+
+@node Overview, Installation, About, Top
+@chapter Features
+
+BotCommander is a telnet client and much more. It can connect to one or more
+@url{http://www.eggheads.org/, eggdrop} IRC bots, and give commands to them. In
+the near future it will also possible to give the same command to each connected
+bots.
+
+Unlike the normal telnet client, this program has command line editing and
+recalling possibilities. E.g if you have a long command line such
+
+@code{
+.process very much ugly paramters username
+}
+@*what you have to run multiple times, and in which you only change the username,
+it is possible to recall the previous command, change the username, and send the
+changed command. Thus, you don't have to enter the whole line again and again.
+
+It uses @url{http://www.gtk.org/, GTK2} and some @url{http://www.gnome.org/,
+GnomeUI} components, and stores its configuration data in
+@url{http://www.gnome.org/projects/gconf/, GConf2}.
+
+As it uses tabs, you can connect to many bots in one application, and at last
+you won't have one icon for every bot in your task bar.
+
+If you want (and you are at least have global +o in the bot), you can have a
+sidebar on your tabs, in which you can see a list of the channels and the users
+you have. For this, you will need to install the @file{botcommander.tcl} script
+(can be found in the @file{eggdrop/} directory) in your bot (@code{.source
+botcommander.tcl}). When the script loads, or when someone connects to the bot
+via DCC
+
+@node Installation, Invoking, Overview, Top
+@chapter How to install?
+
+@cindex installation
+
+As BotCommander is currently in alpha phase, you cannot compile it with the
+usual
+
+@example
+./configure
+make
+make install
+@end example
+
+sequence. First, you should edit the config.h file, and change the location of
+the pixmaps dir. Then You should run @code{make check} to check if all the
+required packages are installed on your system. At the moment these are
+
+@itemize
+@item
+pkg-config
+
+@item
+gtk
+
+@item
+vte
+
+@item
+gconf2
+
+@item
+gnomeui2
+@end itemize
+
+If all is OK, simply run @code{make}. If nothing goes wrong, the binary will be
+src/botcommander.
+
+If you want to install BotCommander, copy the binary to /usr/local/bin. You
+should change the @code{PIXMAPSDIR} variable in @file{config.h} to something
+like @code{/usr/local/share/botcommander}, and recompile the whole thing.
+
+@node Invoking, Commands, Installation, Top
+@chapter Command line arguments
+
+@cindex command line args
+
+No command line arguments are defined yet. This means that BotCommander
+currently accepts the @url{http://www.gnome.org/, Gnome} and
+@url{http://www.gtk.org, GTK} standard command line parameters.
+
+Yet I don't even have any plans for such parameters.
+
+@node Commands, QUIT, Invoking, Top
+@chapter Internal commands
+
+@cindex command
+
+BotCommander is a bit like an IRC client. As is, there are many commands built
+in.
+
+Most of the commands can be abbreviated. This means you can shorten a command
+while it is still obvious.
+
+For example, you can write @code{CON botname} instead of
+@code{CONNECT botname}, as no other commands begin with ``CON''.
+
+However, there are some ``dangerous'' commands which cannot be abbreviated. One
+such command is QUIT.
+
+@cindex internal command list
+
+@menu
+* QUIT::         Exits BotCommander
+* CLOSE::        Closes the active tab
+* CONNECT::      Connects to a bot or a host
+* ASSIGN::       Assigns a bot to the active tab
+* MODE::         Changes the mode in the current tab
+* HISTLIST::     Lists the previously issued commands and sent messages
+* BOTLIST::      Opens the bot list window
+* PREFERENCES::  Opens the setup dialog
+* DISCONNECT::   Disconnects the current tab
+@end menu
+
+@node QUIT, CLOSE, Commands, Commands
+@section The QUIT command
+
+@cindex command, QUIT
+
+This command simply exists BotCommander.
+
+If at least one tab is open with an opened connection, BotCommander will pop up
+a dialog if the user really wants to exit.
+
+These commands cannot be abbreviated.
+
+@node CLOSE, CONNECT, QUIT, Commands
+@section The CLOSE command
+
+@cindex command, CLOSE
+
+This will close the active tab. If a connection is opened in the tab,
+BotCommander will pop up a dialog if the user really wants to do that.
+
+@node CONNECT, ASSIGN, CLOSE, Commands
+@section The CONNECT command
+
+@cindex command, CONNECT
+
+This will open a connection. You can use it in several ways.
+
+If you have already assigned a bot to the tab with the ASSIGN (@xref{ASSIGN}.) command,
+you can use it without parameters, so it will connect to the assigned bot.
+
+If you have a bot in your bot list, you can connect to it with @code{CONNECT
+botname}. It will also assign that bot to the tab.
+
+You can use it in the form @code{CONNECT host port}.
+
+@node ASSIGN, MODE, CONNECT, Commands
+@section The ASSIGN command
+
+@cindex command, ASSIGN
+
+Assigns a bot to the active tab. You can use it in the form @code{ASSING
+botname} or @code{ASSIGN host port}. After assigning a bot, you can use the
+@code{CONNECT} command without parameters to connect to the bot.
+
+@node MODE, HISTLIST, ASSIGN, Commands
+@section The MODE command
+
+@cindex command, MODE
+
+Sets the mode in the current tab. It has only one parameter, the new mode
+character. It can be B for BotCommander command mode, E for Eggdrop command mode
+or M for Message mode.
+
+You can see the current mode in the right side of the status bar.
+
+@node HISTLIST, BOTLIST, MODE, Commands
+@section The HISTLIST command
+
+@cindex command, HISTLIST
+
+It's a very useless command. Prints out all the commands and messages you
+entered in the current tab.
+
+@node BOTLIST, PREFERENCES, HISTLIST, Commands
+@section The BOTLIST command
+
+@cindex command, BOTLIST
+
+This command simply opens the bot list dialog window.
+
+@node PREFERENCES, DISCONNECT, BOTLIST, Commands
+@section The PREFERENCES command
+
+@cindex command, PREFERENCES
+
+This command simply opens the setup dialog.
+
+@node DISCONNECT, Configuration, PREFERENCES, Commands
+@section The DISCONNECT command
+
+@cindex command, DISCONNECT
+
+This command forces the disconnection of the current tab. This is useful if you
+try to connect a bot which doesn't respond, and you don't want to wait for the
+"connection timeout" message before connecting to somewhere else.
+
+@node Configuration, Plans, DISCONNECT, Top
+@chapter The preferences window
+
+@node Plans, Index, Configuration, Top
+@chapter Future plans
+
+@cindex plans
+
+@itemize
+@item
+ADDBOT botname host port [nick] will add a new bot to the bot list
+
+@item
+DELBOT botname will remove a bot from the bot list
+
+@item
+Scripting. BotCommander will be able to run small scripts, perhaps in TCL
+
+@item
+Macros and command aliases, so you have to type only one command to achieve the
+same as you type in many
+
+@item
+Windows port. This will be done after the whole application is functioning. So
+this will be in the very far future, though I already got requests for it
+@end itemize
+
+@node Index, , Plans, Top
+@unnumbered Index
+
+@printindex cp
+
+@c End
+@bye
+

@@ -1,0 +1,33 @@
+#! /bin/sh
+
+MAIN_DIR=source_html
+C2HTML=`which c2html`
+
+if [ x$C2HTML = x ]
+then
+	echo "c2html not found. Please install that first!"
+	exit 1
+fi
+
+rm -rf $MAIN_DIR
+mkdir -p $MAIN_DIR
+
+echo "<html>
+	<head>
+		<title>BotCommander sources in HTML</title>
+	</head>
+	<body>
+		<h1>BotCommander sources in HTML</h1>" >> $MAIN_DIR/index.html
+
+for FILE in `find -name \*.[ch]`
+do
+	DIR=`dirname $FILE`
+	mkdir -p $MAIN_DIR/$DIR
+	cat $FILE | c2html > $MAIN_DIR/$FILE.html
+	echo "		<a href=\"$FILE.html\">$FILE</a><br />" >> $MAIN_DIR/index.html
+done
+
+echo "	</body>
+</html>" >> $MAIN_DIR/index.html
+
+exit 0

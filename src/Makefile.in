@@ -1,0 +1,33 @@
+include ../rules
+
+top_srcdir = @top_srcdir@
+
+CC = @CC@
+CPPFLAGS = @CPPFLAGS@
+CFLAGS = -I../include -I.. @BOTCOMMANDER_CFLAGS@ $(CPPFLAGS) @CFLAGS@
+LIBS = @BOTCOMMANDER_LIBS@ @LDFLAGS@ @LIBS@
+
+all: $(C_OBJECTS)
+	$(CC) -o $(EXE) $(LIBS) $(C_OBJECTS)
+
+about.@OBJEXT@ botlist.@OBJEXT@ bots.@OBJEXT@ callbacks.@OBJEXT@ config.@OBJEXT@ networking.@OBJEXT@: ../config.h
+about.@OBJEXT@ config.@OBJEXT@ main.@OBJEXT@ networking.@OBJEXT@ string.@OBJEXT@ tabs.@OBJEXT@ widgets.@OBJEXT@: ../include/defines.h
+about.@OBJEXT@ botlist.@OBJEXT@ bots.@OBJEXT@ callbacks.@OBJEXT@ commands.@OBJEXT@ config.@OBJEXT@ main.@OBJEXT@ networking.@OBJEXT@ setup.@OBJEXT@ tabs.@OBJEXT@ widgets.@OBJEXT@ chanprops.@OBJEXT@: ../include/functions.h
+$(C_OBJECTS): ../include/typedefs.h
+botlist.@OBJEXT@ bots.@OBJEXT@ callbacks.@OBJEXT@ commands.@OBJEXT@ config.@OBJEXT@ history.@OBJEXT@ main.@OBJEXT@ networking.@OBJEXT@ setup.@OBJEXT@ tabs.@OBJEXT@ widgets.@OBJEXT@: ../include/variables.h
+
+.c.@OBJEXT@:
+	$(CC) $(CFLAGS) -o $@ -c $<
+
+clean:
+	$(RM) $(EXE) $(C_OBJECTS)
+
+install: all
+	$(top_srcdir)/mkinstalldirs $(bindir)
+	$(INSTALL) -m 0755 botcommander $(bindir)
+
+distclean: clean
+	$(RM) Makefile config.status config.cache config.log
+
+.PHONY: all clean
+

@@ -1,0 +1,542 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE book PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
+"http://www.oasis-open.org/docbook/xml/4.4/docbookx.dtd">
+<book>
+  <title>BotCommander</title>
+
+  <bookinfo>
+    <author>
+      <personname>
+        <firstname>Gergely</firstname>
+
+        <surname>POLONKAI</surname>
+      </personname>
+
+      <email>polesz@botcommander.hu</email>
+    </author>
+
+    <copyright>
+      <year>2005-2007</year>
+
+      <holder>Gergely POLONKAI</holder>
+    </copyright>
+  </bookinfo>
+
+  <dedication>
+    <beginpage />
+
+    <para>I dedicate this book to my girlfriend, as she was so patient while I
+    wrote it.</para>
+  </dedication>
+
+  <toc>
+    <beginpage />
+
+    <title>Table of Contents</title>
+
+    <tocpart>
+      <tocentry>Part I: About BotCommander and this book</tocentry>
+
+      <tocchap>
+        <tocentry>Chapter 1: Who should read this book?</tocentry>
+      </tocchap>
+
+      <tocchap>
+        <tocentry>Chapter 2: About BotCommander</tocentry>
+      </tocchap>
+    </tocpart>
+  </toc>
+
+  <preface>
+    <beginpage />
+
+    <title>Preface</title>
+
+    <para>This document tries to explain the history and usage of the software
+    BotCommander briefly.</para>
+  </preface>
+
+  <part>
+    <title>About BotCommander and this book</title>
+
+    <chapter>
+      <title>Who should read this book?</title>
+
+      <para><itemizedlist>
+          <listitem>
+            <para>Everyone, who handles at least one eggdrop IRC bot</para>
+          </listitem>
+
+          <listitem>
+            <para>Everyone, who wants to write addons (modules) for
+            BotCommander</para>
+          </listitem>
+
+          <listitem>
+            <para>Everyone, who wants to learn the script-writing methods for
+            BotCommander</para>
+          </listitem>
+        </itemizedlist></para>
+    </chapter>
+
+    <chapter>
+      <title>About BotCommander</title>
+
+      <para>BotCommander is a specialized telnet client, and a bit more. It is
+      specialized in eggdrop IRC bot handling, enhanced with scripting
+      possibility, and may also be enhanced with self-written modules (just
+      like eggdrop itself).</para>
+
+      <para>The project has its own homepage at
+      <uri>http://www.botcommander.hu/</uri></para>
+    </chapter>
+
+    <chapter>
+      <title>BotCommander features</title>
+
+      <glosslist>
+        <glossentry>
+          <glossterm>Command line history</glossterm>
+
+          <glossdef>
+            <para>BotCommander has command line history. This means you can
+            recall your previous commands with the Up/Down keys, edit them,
+            and/or issue them again.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>Tabbed interface</glossterm>
+
+          <glossdef>
+            <para>BotCommander has a tabbed interface, which means you can
+            have several connections in only one window - just like an IRC, or
+            IM client.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>Channel and user list</glossterm>
+
+          <glossdef>
+            <para>If you have the correct permissions, you can have a list of
+            the bot's users and channels; also you will be able to manage
+            these: change user and channel flags and more. However, this
+            feature requires a small TCL script to be loaded in the bot (that
+            script is provided with BotCommander).</para>
+          </glossdef>
+        </glossentry>
+      </glosslist>
+    </chapter>
+
+    <chapter>
+      <title>Some technical background</title>
+
+      <para>BotCommander uses GConf2 to store its configuration, and all
+      bot-related data. The graphical part (the widgets) are from GTK+
+      (currently using 2.6 features), and some are from libgnomeui.</para>
+    </chapter>
+  </part>
+
+  <part>
+    <title>Installation</title>
+
+    <preface>
+      <title>About this part</title>
+
+      <para>In this chapter you will learn about the installation methods of
+      BotCommander. You will be able to install BotCommander under several
+      Linux distributions, such as Debian and Gentoo, and also will know how
+      to install it from the sources.</para>
+    </preface>
+
+    <chapter>
+      <title>Install on Debian machines</title>
+
+      <para>For a few years, I was a hardcore Debian-user. Thus, it was almost
+      my first task to create a Debian package out of BotCommander.</para>
+
+      <para>I also created a Debian repository, so it is an easy task to
+      install BotCommander under a Debian system. Just add the following lines
+      to your <filename>sources list</filename> file.</para>
+
+      <example>
+        <title>The <filename>sources.list</filename> snippet required to
+        install BotCommander .deb packages with apt.</title>
+
+        <para>deb http://www.botcommander.hu/debian testing main</para>
+
+        <para>deb-src http://www.botcommander.hu/debian testing main</para>
+      </example>
+
+      <para>This snippet is only for debian etch (as of writing, at the end of
+      2006).</para>
+    </chapter>
+
+    <chapter>
+      <title>Install on Gentoo machines</title>
+
+      <para>After my Debian years, my next Linux-breed was Gentoo. It's
+      absolutely does what the user wants (sure, if the user is smart enough).
+      After a few days of coding, a Gentoo ebuild was born. It is the part of
+      the BotCommander package, can be downloaded from
+      <uri>http://www.botcommander.hu/</uri>, and I'm also trying to add it to
+      the official Gentoo portage.</para>
+    </chapter>
+
+    <chapter>
+      <title>Install from sources</title>
+
+      <para>If you are not the user of the above systems, then currently no
+      package exists for your needs. I'm really sorry for that, but I always
+      welcome if someone sends me a package for any OS-es.</para>
+
+      <para>So, you arrived here, you want to install BotCommander from
+      sources. This is good, but has some prerequisites: you will need bunch
+      of software you may not currently have installed. I'm trying to make
+      this list as correct as possible, but it may happen that I forgot about
+      something. I'm really sorry if so.</para>
+
+      <glosslist>
+        <glossentry>
+          <glossterm>autoconf v2.60</glossterm>
+
+          <glossdef>
+            <para>This is required only if you want to compile the SVN tree,
+            as it doesn't contain a configure script.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>gcc</glossterm>
+
+          <glossdef>
+            <para>gcc is the GNU C Compiler. This is a necessary tool.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>gdk-pixbuf</glossterm>
+
+          <glossdef>
+            <para>This is the GDK-pixbuf library, required by BotCommander to
+            render some icons.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>glib</glossterm>
+
+          <glossdef>
+            <para>This is the GLib library. BotCommander uses its
+            memory-handling routines.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>GTK+ v2.6.2 or greater</glossterm>
+
+          <glossdef>
+            <para>This is the GTK library. BotCommander uses its widgets
+            heavily.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>libgnome2</glossterm>
+
+          <glossdef>
+            <para>This is the Gnome library. BotCommander uses some widgets in
+            it.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>libgnomeui2</glossterm>
+
+          <glossdef>
+            <para>This is the Gnome-UI library. BotCommander uses the file
+            open dialog from it.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>VTE</glossterm>
+
+          <glossdef>
+            <para>This is the VTE (Virtual Terminal Emulation) library.
+            BotCommander displays all the bot-messages in such a
+            widget.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>GNU Gettext package</glossterm>
+
+          <glossdef>
+            <para>This package is required for BotCommander to speak many
+            languages. I'm trying to make this one optional, so one will be
+            able to compile BotCommander without multilingual support (may be
+            good for english-speaking people, and for minimalist
+            systems)</para>
+          </glossdef>
+        </glossentry>
+      </glosslist>
+    </chapter>
+  </part>
+
+  <part>
+    <title>Basic eggdrop usage</title>
+
+    <preface>
+      <title>Terms and assumptions</title>
+
+      <para>Throughout this part we assume that you install your bot yourself,
+      and thus you have an owner flag in it. Many functions are not
+      accessible, if you don't possess that +n flag.</para>
+    </preface>
+
+    <chapter>
+      <title>Compiling and installing eggdrop</title>
+
+      <note>
+        <para>This chapter assumes that you have TCL installed system-wide. If
+        not, please consult the eggdrop manual on how to install it for one
+        single user, and how to make eggdrop use that library. I also assume
+        that you know how to use the basic Unix/Linux commands, such as tar,
+        thus you can unpack the eggdrop archive.</para>
+      </note>
+
+      <para>First things first, you much fetch eggdrop from somewhere. The
+      best place for this is eggheads' homepage at
+      <uri>http://www.eggheads.org/</uri>. Download the latest version (as of
+      writing, it is 1.6.18), and unpack it. Then enter the unpacked
+      distibution's directory, and issue the following commands:</para>
+
+      <example>
+        <title>Commands to configure and compile eggdrop</title>
+
+        <para>./configure</para>
+
+        <para>make iconfig</para>
+
+        <para>make</para>
+      </example>
+
+      <para>After issuing <command>make iconfig</command>, that script will
+      ask you several questions if you want to install this-or-that module.
+      Read the module descriptions, and choose whichever you need.</para>
+
+      <note>
+        <para>I'm currently planning to write my
+        <filename>botcommander.tcl</filename> script as an eggdrop module. If
+        I'm ready with that, I will instruct you how to compile new modules
+        for eggdrop.</para>
+      </note>
+
+      <para>After <command>make</command> finishes without errors, you can
+      issue the last, <command>make install</command> command. This will
+      install eggdrop to the given directory (if none was given, the default
+      is <filename>$HOME/eggdrop</filename>.</para>
+    </chapter>
+
+    <chapter>
+      <title>Configuring your bot</title>
+
+      <para>Configuring eggdrop is a long, yet not hard process, which
+      requires almost no understanding of eggdrop, if you know english.</para>
+
+      <note>
+        <para>The following is only a suggestion; contains my way on
+        configuring an eggdrop bot.You may do it several other ways; it's up
+        to you. However, if you read through this chapter, and follow my
+        words, I will assume that the name you have chosen your bot is
+        <acronym>BCbot</acronym>.</para>
+      </note>
+
+      <para>First of all, enter the directory which contains your eggdrop
+      installation. As said in the previous chapter, by default it is
+      <filename>$HOME/eggdrop</filename>. After that, make a copy of
+      eggdrop.conf with a filename as you will call your bot; then make it
+      executable for at least yourself.</para>
+
+      <example>
+        <title>Copy eggdrop.conf to your own file, and make it
+        executable.</title>
+
+        <para>cp eggdrop.conf BCbot</para>
+
+        <para>chmow 755 BCbot</para>
+      </example>
+
+      <para>Now begin to edit your newly created configuration. The most
+      important thing (of course, if you follow my way) it the very first row,
+      which now looks like this:</para>
+
+      <para><code>#! /path/to/executable/eggdrop</code></para>
+
+      <para>This tells the Unix/Linux shell to use
+      <filename>/path/to/executable/eggdrop</filename> to interpret this file.
+      Thus, the shell, instead of trying on interpreting the command in that
+      file, will run the given command with this file as a parameter. Unless
+      your eggdrop is at that location, you must change that line to something
+      like this:</para>
+
+      <para><code>#! /home/yourusername/eggdrop/eggdrop</code></para>
+    </chapter>
+  </part>
+
+  <part>
+    <title>Usage</title>
+
+    <chapter>
+      <title>Command line parameters</title>
+
+      <para>BotCommander doesn't have any defined command line parameters.
+      This means that it accepts only the standard Gnome and GTK+ parameters
+      only. I don't even have any plans on defining such things (yet).</para>
+    </chapter>
+
+    <chapter>
+      <title>Built-in commands</title>
+
+      <para>BotCommander has several built-in commands. These can be called
+      from BotCommander or external scripts, thus extending BotCommander's
+      functionality.</para>
+
+      <para>Most of these commands can be abbreviated. This means that you can
+      cut off the end of the commands, until it is obvious to the application.
+      For example, as of the time of writing, the CONNECT command can be
+      abbreviated as CON.</para>
+
+      <para>There are some "dangerous" commands, such as QUIT, which cannot be
+      abbreviated, so - in this case - you won't exit BotCommander if you
+      accidently type in the Q command.</para>
+
+      <section>
+        <title>QUIT</title>
+
+        <para>The QUIT command does what it should according to its name:
+        exits BotCommander.</para>
+
+        <para>If at least one connected tab is open, a small dialog will pop
+        up, asking if you are serious about quitting.</para>
+
+        <para>This command cannot be abbreviated.</para>
+      </section>
+
+      <section>
+        <title>CLOSE</title>
+
+        <para>This command closes the currently active tab. If there is an
+        active connection in that tab, a dialog will pop up asking if you
+        really want to do that.</para>
+
+        <para>This command cannot be abbreviated.</para>
+      </section>
+
+      <section>
+        <title>CONNECT</title>
+
+        <para>This will open a connection in the current tab. It has many
+        different invokations, depending on the parameters given.</para>
+
+        <orderedlist>
+          <listitem>
+            <para>CONNECT without parameters will work if you previously
+            assigned a bot to the active tab with the ASSIGN command. If so,
+            the connection will be open to the given bot.</para>
+          </listitem>
+
+          <listitem>
+            <para>CONNECT botname will connect to the named bot in the bot
+            list.</para>
+          </listitem>
+
+          <listitem>
+            <para>CONNECT host port will connect to the specified host, on the
+            specified port. This can be useful, if you want to connect to a
+            bot only once, e.g to check some settings or such.</para>
+          </listitem>
+
+          <listitem>
+            <para>CONNECT host port username does exactly as the above
+            command, but it will automatically send the given username also.
+            This will be useful as the initial connection to a bot, as I'm
+            planning to implement a SAVEBOT command, which will do just what
+            it name suggests: save the current bot to the bot list.</para>
+          </listitem>
+        </orderedlist>
+      </section>
+
+      <section>
+        <title>ASSIGN</title>
+
+        <para>The ASSIGN command does the same as CONNECT, with only one
+        difference: it won't connect. It will assign all the connection
+        parameters to the current tab, so when you are ready, you can use the
+        CONNECT command without any parameters to do the actual
+        connection.</para>
+      </section>
+
+      <section>
+        <title>MODE</title>
+
+        <para>The MODE command changes the current tab's mode. You can read
+        more about modes in <xref linkend="chap_modes" /></para>
+      </section>
+    </chapter>
+
+    <chapter id="chap_modes">
+      <title>Modes</title>
+
+      <para>BotCommander uses modes to distinguish between commands addressed
+      to itself, and addressed to the connected bot.</para>
+
+      <para>There are three modes, identified by their english names' first
+      character.</para>
+
+      <glosslist>
+        <glossentry>
+          <glossterm>B, or BotCommander command mode (/)</glossterm>
+
+          <glossdef>
+            <para>In this mode, entered text is validated against the commands
+            built in to BotCommander, or commands provided by scripts and
+            modules.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>E, or Eggdrop command mode (.)</glossterm>
+
+          <glossdef>
+            <para>In this mode, text is sent to the connected bot (if any), so
+            eggdrop itself will validate it.</para>
+          </glossdef>
+        </glossentry>
+
+        <glossentry>
+          <glossterm>M, or Message mode (@)</glossterm>
+
+          <glossdef>
+            <para>In this mode, entered text is sent to the connected bot. As
+            you see, it is just the same as E mode, but there is a small
+            difference. If the entered text begins with a dot (.), eggdrop
+            would identify and parse it as a command. So in this case, the
+            entered text is prefixed with a space.</para>
+          </glossdef>
+        </glossentry>
+      </glosslist>
+
+      <para>You can change between these modes in the Mode menu, or with
+      hotkeys (Ctrl-B, Ctrl-E and Ctrl-M respectively). However, if you want
+      to use one specific mode for a long time, and issue one line in a
+      different mode, you can prefix your text with the character in
+      parentheses in the above list. E.g if you use Message mode for hours,
+      and want to issue one BotCommander command, you can do it by entering
+      /COMMAND. As this happens, BotCommander will parse and execute the given
+      row as a BotCommander command, and return to message mode.</para>
+    </chapter>
+  </part>
+</book>

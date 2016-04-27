@@ -1,0 +1,307 @@
+# BotCommander gettext messages.
+# Original file created by Gergely POLONKAI for BotCommander v1.0
+
+#: src/widgets.c:223
+msgid "_About"
+msgstr ""
+
+#: src/tabs.c:103
+msgid "Activate"
+msgstr ""
+
+#: src/botlist.c:180
+msgid "Add bot"
+msgstr ""
+
+#: src/widgets.c:114
+msgid "_BotCommander command mode"
+msgstr ""
+
+#: src/botlist.c:351
+msgid "Bot list"
+msgstr ""
+
+#: src/widgets.c:147
+msgid "_Bot list"
+msgstr ""
+
+#: src/botlist.c:384
+#: src/botlist.c:482
+msgid "Bot name"
+msgstr ""
+
+#: src/widgets.c:106
+msgid "_Bot"
+msgstr ""
+
+#: src/tabs.c:510
+msgid "Can not connect to bot"
+msgstr ""
+
+#: src/tabs.c:504
+msgid "Can not get IP protocol"
+msgstr ""
+
+#: src/tabs.c:507
+msgid "Can not resolv hostname %s"
+msgstr ""
+
+#: src/setup.c:247
+msgid "Change to message mode after connect"
+msgstr ""
+
+#: src/setup.c:253
+msgid "Change to newly created tab"
+msgstr ""
+
+#: src/tabs.c:309
+msgid "Channels"
+msgstr ""
+
+#: src/widgets.c:269
+msgid "Close active tab"
+msgstr ""
+
+#: src/widgets.c:200
+msgid "_Close tab"
+msgstr ""
+
+#: src/setup.c:265
+msgid "Command line history length"
+msgstr ""
+
+#: src/callbacks.c:357
+msgid "Connected"
+msgstr ""
+
+#: src/commands.c:131
+#: src/networking.c:53
+msgid "Connecting to %s:%d"
+msgstr ""
+
+#: src/commands.c:93
+#: src/commands.c:108
+msgid "Connecting to %s"
+msgstr ""
+
+#: src/tabs.c:593
+msgid "Connection closed"
+msgstr ""
+
+#: src/botlist.c:357
+msgid "_Connect"
+msgstr ""
+
+#: src/setup.c:240
+msgid "Debug mode"
+msgstr ""
+
+#: src/botlist.c:88
+msgid "Edit bot"
+msgstr ""
+
+#: src/widgets.c:123
+msgid "_Eggdrop command mode"
+msgstr ""
+
+#: src/widgets.c:267
+msgid "Exit BotCommander"
+msgstr ""
+
+#: src/widgets.c:91
+msgid "E_xit"
+msgstr ""
+
+#: src/setup.c:306
+msgid "Font"
+msgstr ""
+
+#: src/botlist.c:494
+msgid "Handle"
+msgstr ""
+
+#: src/tabs.c:323
+msgid "Handles"
+msgstr ""
+
+#: src/widgets.c:237
+msgid "_Help"
+msgstr ""
+
+#: src/botlist.c:486
+msgid "Host"
+msgstr ""
+
+#: src/about.c:52
+msgid "licence"
+msgstr ""
+
+#: src/widgets.c:131
+msgid "_Message mode"
+msgstr ""
+
+#: src/commands.c:170
+msgid "Mode char can be one of B, E or M!"
+msgstr ""
+
+#: src/callbacks.c:93
+#: src/callbacks.c:94
+#: src/main.c:45
+#: src/main.c:46
+#: src/tabs.c:362
+#: src/tabs.c:363
+#: src/tabs.c:460
+#: src/tabs.c:461
+#: src/widgets.c:291
+#: src/widgets.c:292
+#: src/widgets.c:139
+#: src/widgets.c:185
+msgid "Mode: %c"
+msgstr ""
+
+#: src/widgets.c:268
+msgid "New tab"
+msgstr ""
+
+#: src/commands.c:102
+#: src/commands.c:143
+msgid "No bot exists by that name"
+msgstr ""
+
+#: src/commands.c:86
+msgid "No bot is assigned to this tab. Use ASSIGN to do that."
+msgstr ""
+
+#: src/tabs.c:335
+#: src/tabs.c:360
+msgid "Not connected"
+msgstr ""
+
+#: src/commands.c:124
+#: src/commands.c:261
+msgid "Not enough memory!"
+msgstr ""
+
+#: src/commands.c:154
+#: src/commands.c:275
+msgid "Not enough parameters!"
+msgstr ""
+
+#: src/commands.c:159
+msgid "Only one parameter required!"
+msgstr ""
+
+#: src/botlist.c:490
+msgid "Port"
+msgstr ""
+
+#: src/widgets.c:162
+msgid "_Preferences"
+msgstr ""
+
+#: src/widgets.c:270
+msgid "Preferences"
+msgstr ""
+
+#: src/tabs.c:107
+#: src/tabs.c:124
+#: src/tabs.c:141
+msgid "Properties"
+msgstr ""
+
+#: src/setup.c:295
+msgid "Saturation"
+msgstr ""
+
+#: src/setup.c:259
+msgid "Save preferences on exit"
+msgstr ""
+
+#: src/setup.c:285
+msgid "Scroll on output"
+msgstr ""
+
+#: src/commands.c:119
+msgid "Second parameter must be a port number!"
+msgstr ""
+
+#: src/setup.c:228
+msgid "Setup"
+msgstr ""
+
+#: src/widgets.c:177
+msgid "_Setup"
+msgstr ""
+
+#: src/tabs.c:583
+msgid "Tab is not connected"
+msgstr ""
+
+#: src/widgets.c:215
+msgid "_Tab"
+msgstr ""
+
+#: src/setup.c:280
+msgid "Terminal"
+msgstr ""
+
+#: src/commands.c:164
+msgid "The parameter must be one character!"
+msgstr ""
+
+#: src/main.c:84
+msgid "There are connected tabs. Are you sure, you want to exit?"
+msgstr ""
+
+#: src/bots.c:75
+msgid "There is already a bot named %s in the list.\n"
+msgstr ""
+
+#: src/config.c:109
+msgid "There was an error accessing GConf2: %s"
+msgstr ""
+
+#: src/commands.c:271
+msgid "This command cannot be abbreviated!"
+msgstr ""
+
+#: src/commands.c:81
+msgid "This tab is already connected. Exit the bot with .quit, or use /DISCONNECT!"
+msgstr ""
+
+#: src/tabs.c:431
+msgid "This tab is connected. Are you sure you want to close it?"
+msgstr ""
+
+#: src/about.c:51
+msgid "translator_credits"
+msgstr ""
+
+#: src/setup.c:290
+msgid "Transparent background"
+msgstr ""
+
+#: src/commands.c:281
+msgid "Unknown command \"%s\""
+msgstr ""
+
+#: src/tabs.c:516
+msgid "Unknown error!"
+msgstr ""
+
+#: src/callbacks.c:141
+msgid "Won't send an eggdrop command to a not connected tab"
+msgstr ""
+
+#: src/callbacks.c:162
+msgid "Won't send message to a not connected tab"
+msgstr ""
+
+#: data/botcommander.desktop.in.in
+msgid "BotCommander"
+msgstr ""
+
+#: data/botcommander.desktop.in.in
+msgstr "BotCommander eggdrop client"
+msgid ""
+

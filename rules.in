@@ -1,0 +1,9 @@
+C_OBJECTS = main.@OBJEXT@ widgets.@OBJEXT@ callbacks.@OBJEXT@ tabs.@OBJEXT@ string.@OBJEXT@ bots.@OBJEXT@ commands.@OBJEXT@ config.@OBJEXT@ setup.@OBJEXT@ about.@OBJEXT@ networking.@OBJEXT@ history.@OBJEXT@ botlist.@OBJEXT@ debug.@OBJEXT@ chanprops.@OBJEXT@
+DOC_OBJECTS = botcommander.pdf
+RM = rm -f
+PIXMAPS_OBJECTS = bc48.png bc48_trans.png
+INSTALL = @INSTALL@
+EXE = botcommander@EXEEXT@
+prefix = ${DESTDIR}@prefix@
+exec_prefix = @exec_prefix@
+bindir = @bindir@

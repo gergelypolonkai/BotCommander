@@ -1,0 +1,13 @@
+# List of source files containing translatable strings.
+# Please keep this list in alphabetical order.
+../src/about.c
+../src/botlist.c
+../src/bots.c
+../src/callbacks.c
+../src/commands.c
+../src/config.c
+../src/main.c
+../src/networking.c
+../src/setup.c
+../src/tabs.c
+../src/widgets.c

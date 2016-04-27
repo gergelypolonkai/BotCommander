@@ -1,0 +1,16 @@
+include ../rules
+
+top_srcdir = @top_srcdir@
+
+PACKAGE_PIXMAPS_DIR = @datarootdir@/pixmaps/@PACKAGE_TARNAME@
+
+all:
+clean:
+
+install:
+	$(top_srcdir)/mkinstalldirs $(PACKAGE_PIXMAPS_DIR)
+	$(INSTALL) -m 0644 $(PIXMAPS_OBJECTS) $(PACKAGE_PIXMAPS_DIR)
+
+distclean:
+	/bin/rm -f Makefile
+

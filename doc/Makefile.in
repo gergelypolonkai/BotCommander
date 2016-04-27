@@ -1,0 +1,31 @@
+include ../rules
+
+TEXI2PDF = @TEXI2PDF@
+
+PACKAGE_TARNAME = @PACKAGE_TARNAME@
+prefix = @prefix@
+datarootdir = @datarootdir@
+docdir = @docdir@
+PDFTARGETDIR = @pdfdir@
+top_srcdir = @top_srcdir@
+
+all: $(DOC_OBJECTS)
+
+botcommander.pdf: botcommander.texinfo
+	$(TEXI2PDF) botcommander.texinfo
+
+clean:
+	$(RM) $(DOC_OBJECTS)
+	$(RM) botcommander.aux botcommander.cp botcommander.cps botcommander.fn \
+		botcommander.ky botcommander.log botcommander.pg botcommander.toc \
+		botcommander.tp botcommander.vr
+
+distclean: clean
+	$(RM) Makefile config.status config.cache config.log
+
+install: all
+	$(top_srcdir)/mkinstalldirs $(PDFTARGETDIR)
+	$(INSTALL) -m 0644 botcommander.pdf $(PDFTARGETDIR)
+
+.PHONY: all clean distclean install
+

@@ -1,0 +1,165 @@
+/* vim: set foldmethod=marker : */
+/* {{{ Legal info
+ *  This program is free software; you can redistribute it and/or modify
+ *  it under the terms of the GNU General Public License as published by
+ *  the Free Software Foundation; either version 2 of the License, or
+ *  (at your option) any later version.
+ *
+ *  This program is distributed in the hope that it will be useful,
+ *  but WITHOUT ANY WARRANTY; without even the implied warranty of
+ *  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ *  GNU Library General Public License for more details.
+ *
+ *  You should have received a copy of the GNU General Public License
+ *  along with this program; if not, write to the Free Software
+ *  Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA 02111-1307, USA.
+ }}} */
+/* {{{ Author and file info
+ *            config.h.in
+ *
+ *  Wed Nov 09 22:16:59 2005
+ *  Copyright (C) 2005 Gergely POLONKAI
+ *  polesz@techinfo.hu
+ *
+ * This file holds some default settings.
+ }}} */
+
+/* This is the GConf path where BC stores it's settings. You should leave this
+ * as the default */
+#define GCONF2_ROOT "/apps/botcommander"
+
+/* {{{ Default settings */
+#define DEFAULT_SCROLL_ON_OUTPUT TRUE
+#define DEFAULT_CHANGE_TO_MESSAGE TRUE
+#define DEFAULT_DEBUG FALSE
+#define DEFAULT_TRANSPARENT_BACKGROUND FALSE
+#define DEFAULT_BACKGROUND_SATURATION 1.0
+#define DEFAULT_DEFAULT_MODE "B"
+#define DEFAULT_VTE_FONT "Courier 10 Pitch 12"
+#define DEFAULT_CHANGE_TO_NEW_TAB FALSE
+#define DEFAULT_HISTORY_LENGTH 100
+/* }}} */
+
+/* Eggdrop itself uses ISO-8859-1 when using the default english language. You
+ * only have to change this if you use a different language file (e.g hungarian
+ * is usually in ISO-8859-2), or you use a script or module which sends out
+ * characters in a different character set. */
+#define BOT_CHARSET "ISO-8859-1"
+
+#define MAX_READ_LINE_LEN 1024
+
+/* config.h.in.  Most of this file is generated from configure.in by
+ * autoheader.  */
+
+/* Define to 1 if you have the <fcntl.h> header file. */
+#undef HAVE_FCNTL_H
+
+/* GETTEXT package name */
+#undef GETTEXT_PACKAGE
+
+/* Define to 1 if you have the `gethostbyname' function. */
+#undef HAVE_GETHOSTBYNAME
+
+/* Define to 1 if you have the <inttypes.h> header file. */
+#undef HAVE_INTTYPES_H
+
+/* Define to 1 if you have the <libintl.h> header file. */
+#undef HAVE_LIBINTL_H
+
+/* Define to 1 if you have the `m' library (-lm). */
+#undef HAVE_LIBM
+
+/* Define to 1 if you have the <locale.h> header file. */
+#undef HAVE_LOCALE_H
+
+/* Define to 1 if your system has a GNU libc compatible `malloc' function, and
+   to 0 otherwise. */
+#undef HAVE_MALLOC
+
+/* Define to 1 if you have the <memory.h> header file. */
+#undef HAVE_MEMORY_H
+
+/* Define to 1 if you have the `memset' function. */
+#undef HAVE_MEMSET
+
+/* Define to 1 if you have the <netdb.h> header file. */
+#undef HAVE_NETDB_H
+
+/* Define to 1 if you have the <netinet/in.h> header file. */
+#undef HAVE_NETINET_IN_H
+
+/* Define to 1 if you have the `setlocale' function. */
+#undef HAVE_SETLOCALE
+
+/* Define to 1 if you have the `socket' function. */
+#undef HAVE_SOCKET
+
+/* Define to 1 if you have the <stdint.h> header file. */
+#undef HAVE_STDINT_H
+
+/* Define to 1 if you have the <stdlib.h> header file. */
+#undef HAVE_STDLIB_H
+
+/* Define to 1 if you have the `strchr' function. */
+#undef HAVE_STRCHR
+
+/* Define to 1 if you have the `strerror' function. */
+#undef HAVE_STRERROR
+
+/* Define to 1 if you have the <strings.h> header file. */
+#undef HAVE_STRINGS_H
+
+/* Define to 1 if you have the <string.h> header file. */
+#undef HAVE_STRING_H
+
+/* Define to 1 if you have the `strtol' function. */
+#undef HAVE_STRTOL
+
+/* Define to 1 if you have the <sys/socket.h> header file. */
+#undef HAVE_SYS_SOCKET_H
+
+/* Define to 1 if you have the <sys/stat.h> header file. */
+#undef HAVE_SYS_STAT_H
+
+/* Define to 1 if you have the <sys/types.h> header file. */
+#undef HAVE_SYS_TYPES_H
+
+/* Define to 1 if you have the <unistd.h> header file. */
+#undef HAVE_UNISTD_H
+
+/* Define to the address where bug reports for this package should be sent. */
+#undef PACKAGE_BUGREPORT
+
+/* Define to the full name of this package. */
+#undef PACKAGE_NAME
+
+/* Define to the full name and version of this package. */
+#undef PACKAGE_STRING
+
+/* Define to the one symbol short name of this package. */
+#undef PACKAGE_TARNAME
+
+/* Define to the version of this package. */
+#undef PACKAGE_VERSION
+
+/* Define as the return type of signal handlers (`int' or `void'). */
+#undef RETSIGTYPE
+
+/* Define to 1 if you have the ANSI C header files. */
+#undef STDC_HEADERS
+
+/* Define to empty if `const' does not conform to ANSI C. */
+#undef const
+
+/* Define to rpl_malloc if the replacement function should be used. */
+#undef malloc
+
+/* Define to `int' if <sys/types.h> does not define. */
+#undef ssize_t
+
+/* Package pixmaps directory */
+#undef PACKAGE_PIXMAPS_DIR
+
+/* Package local directory */
+#undef PACKAGE_LOCALE_DIR
+
