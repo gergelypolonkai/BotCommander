@@ -18,3 +18,6 @@ src/.deps/*
 po/POTFILES
 *.o
 src/botcommander
+aclocal.m4
+/po/.pot
+/po/remove-potcdate.sed

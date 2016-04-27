@@ -1,0 +1,212 @@
+\input texinfo @c -*- texinfo -*-
+@c %**start of header
+@setfilename botcommander.info
+@settitle BOTCOMMANDER 1.0
+@c %**end of header
+
+@copying
+This manual is for BotCommander, version 1.0
+
+Copyright @copyright{} 2004-2008 Gergely POLONKAI.
+
+@quotation
+Permission is granted to copy and rewrite of this file regarding you mention the name of the original author
+@end quotation
+@end copying
+
+@titlepage
+@title BotCommander, v1.0
+@center @titlefont{BotCommander, v1.0}
+@subtitle Complete manual, written by the author
+@author Gergely POLONKAI
+Permission is granted to copy and rewrite of this file regarding you mention the name of the original author
+
+@c The following two commands start the copyright page
+@page
+@vskip 0pt plus 1filll
+@insertcopying
+
+@end titlepage
+
+@c Let's print the TOC first
+@contents
+
+@documentdescription
+BotCommander User's Manual
+@end documentdescription
+@setchapternewpage on
+@paragraphindent 2
+@firstparagraphindent insert
+@exampleindent 5
+
+@ifnottex
+@node Top, About, (dir), (dir)
+@top BotCommander v1.0 User's manual
+
+@insertcopying
+
+Some text
+
+@menu
+* About::      About this program
+* Usage::      Usage of the program
+* Plans::      Things I want to implement
+@end menu
+
+@end ifnottex
+
+@node About, Modes, Top, Top
+@chapter About BotCommander
+
+BotCommander is a small tool, originally written for the Gnome2 interface, to remotely manage your @uref{http://www.eggheads.org/, eggdrop} IRC bots.
+
+Actually, it's acting as a small, configurable telnet client, but it will know a bit more. For example, it will have command-line history. While you cannot recall your previous command in a simple telnet client, you will be able to do it with this program. As it uses a GTK-Entry for the command line, you can also edit the recalled command.
+
+The program uses gconf2 to store it's configuration data. You can configure it to use a samba-like config file instead, so you won't depend that heavily on gnome2. In the near future I plan xml config backend support.
+
+The main widget of the program is a vte-terminal, which (as I know), is also the part of the GTK2 project. (If you know something else, please let me know) If you are using gnome (and maybe gnome-terminal), vte is already installed on your system (altough you have to install the devel files, if you want to compile BotCommander yourself).
+
+The code is in beta status, but it isn't ready yet. You can see how will it look like, also can use it for connecting and giving commands to your bots, and decide if you will like it or not. The commands I want to implement are missing yet.
+
+Suggestions, bugs and such can be submitted on the @uref{http://savannah.nongnu.org/projects/botcommander/, project page}.
+
+BotCommander icon is from Eggdrop's official homepage. I will draw a new one, but until then, this is perfect. Best regards: Gergely POLONKAI, the developer of BotCommander.
+
+Here is a listing of the features currently available.
+
+@menu
+* Modes::
+* Tabbed interface::
+@end menu
+
+@node Modes, Tabbed interface, About, About
+@section Modes
+
+There are three modes: BotCommander Command Mode (B), Eggdrop Command Mode (E) and Message Mode (M).
+
+Irrespectively of which mode you are in, you can give any command. If you are in mode M, but you have to execute a botcommander command, prefix it with a slash.
+
+@example
+/QUIT
+@end example
+
+If you are e.g in mode B, and want to execute an eggdrop command, prefix it with a dot.
+
+@example
+.die
+@end example
+
+If you are in mode E, and want to send a message to the bot, prefix it with a worm :)
+
+@example
+@@Hello everyone!
+@end example
+
+@node Tabbed interface, Usage, Modes, About
+@section Tabbed interface
+
+Since version 1.0pre1 you can connect to multiple bots on tabs. I made this so I don't have to have one window for each bot, but all of my bots can beside in the same window.
+
+You can open a new tab from the Bot menu, with the New tab menuitem. I put a close button on each tab, so you can easily close them, but if you prefer using menus, you can do it from there, too.
+
+@node Usage, Command line parameters, Tabbed interface, Top
+@chapter Usage
+
+In this section you will get information on how to use this program. I will try to explain how does menus work, what commands can you use, etc.
+
+@menu
+* Command line parameters::     Explaining command line parameters
+* Menus::                       Explanation of the menus
+* Commands::                    Commands can be used
+@end menu
+
+@node Command line parameters, Menus, Usage, Usage
+@section Command line parameters
+
+Here I will explain all the command line parameters. There are none yet, so this section is very short...
+
+@node Menus, Commands, Command line parameters, Usage
+@section Menus
+
+In this section I will explain the meaning of each menu items.
+
+BotCommander has a small amount of menus yet, because I'm focusing on the commands I want to implement. After those are ready (or at least almost ready), I will put many of them into the menu system.
+
+@node Commands, QUIT command, Menus, Usage
+@section Commands
+
+Here I will tell you about all the commands you can use. There are not too many of them, but there will be. BotCommander will be command-oriented :)
+
+@menu
+* QUIT command::
+* EXIT command::
+* MODE command::
+* CONNECT command::
+@end menu
+
+@node QUIT command, EXIT command, Commands, Commands
+@subsection The QUIT command
+
+This command exits BotCommander. Nowadays, it just calls exit(), as I remember, but in a stable version, if a connection is still open, it will ask the user if (s)he really wants to quit...
+
+@node EXIT command, MODE command, QUIT command, Commands
+@subsection The EXIT command
+
+This is just an alias for QUIT.
+
+@node MODE command, CONNECT command, EXIT command, Commands
+@subsection The MODE command
+
+In BotCommander there are three modes. BotCommander Command Mode (B), Eggdrop Command Mode (E) and Message Mode (M). With this command you can switch between modes. I'm planning to assign hotkeys (F5-F7) to mode switching, but I just can't find out, how...
+
+@node CONNECT command, Plans, MODE command, Commands
+@subsection The CONNECT command
+
+This connects to a bot. Currently it has one syntax:
+
+@example
+CONNECT host.of.my.bot portnumber
+@end example
+
+This will connect to the host host.of.my.bot, on the port portnumber.
+
+I'm planning a bot list, which will be managed through a separate window named Bot list, and with the commands ADDBOT, DELBOT and MODBOT. When it is done, you will be able to use another syntax:
+
+@example
+CONNECT botname
+@end example
+
+This will connect to the bot which occurs in the bot list with the name botname.
+
+@node Plans, , CONNECT command, Top
+@chapter Plans
+
+There are many things I want to implement in the future. Here are some. Some of them are under coding right now, but many will only be in the very future versions.
+
+@itemize @bullet
+@item
+XML configuration backend
+@item
+Command-line history
+@item
+CONNECT botname will connect to the given bot
+@item
+ADDBOT botname host port [nick] will add a new bot to the bot list
+@item
+DELBOT botname will remove a bot from the bot list
+@item
+BOTLIST will open up the internal bot list window
+@item
+PREFS will open up the Preferences dialog box
+@item
+A bot list window, where you can easily organize your bots
+@item
+Scripting. BC will be able to run small scripts, perhaps in TCL
+@item
+Macros and command aliases, so you have to type only one command to achieve the same as you type in many
+@item
+Windows port. This will be in the very far future
+@end itemize
+
+@bye
+
